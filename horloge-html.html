@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horloge avec police modifiable</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif; /* Police par défaut, facilement modifiable ici */
+            background-color: #f0f0f0;
+        }
+        #horloge {
+            font-size: 3rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div id="horloge"></div>
+
+    <script>
+        function afficherHeure() {
+            const maintenant = new Date();
+            const heures = maintenant.getHours().toString().padStart(2, '0');
+            const minutes = maintenant.getMinutes().toString().padStart(2, '0');
+            const secondes = maintenant.getSeconds().toString().padStart(2, '0');
+            document.getElementById('horloge').textContent = `${heures}:${minutes}:${secondes}`;
+        }
+
+        setInterval(afficherHeure, 1000);
+        afficherHeure(); // Afficher l'heure immédiatement
+    </script>
+</body>
+</html>
